@@ -2,8 +2,10 @@ import 'package:e_waste/screens.dart/appdrawer.dart';
 import 'package:e_waste/screens.dart/tab_bar.dart';
 import 'package:e_waste/widgets.dart/tabbar.dart';
 import 'package:e_waste/widgets.dart/category.dart';
+import 'package:e_waste/widgets.dart/home_grid.dart';
 import 'package:e_waste/widgets.dart/tabbar.dart';
 import 'package:flutter/material.dart';
+
 
 /*
  {
@@ -90,9 +92,13 @@ class home extends StatelessWidget {
                 bottom: TabBar(
                   tabs: [
                     Tab(
-                      child: Text(
-                        'النفيات التي تم جمعها',
-                        style: TextStyle(fontSize: 20),
+                      child: InkWell(onTap: () {
+                        
+                      },
+                        child: Text(
+                          'النفيات التي تم جمعها',
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ),
                     Tab(
@@ -102,23 +108,10 @@ class home extends StatelessWidget {
                   ],
                 )),
             drawer: appdrawer(),
-            body: GridView.builder(
-              itemCount: photo.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  childAspectRatio: 2 / 2,
-                  crossAxisSpacing: 3,
-                  mainAxisSpacing: 6),
-              itemBuilder: (BuildContext context, index) {
-                return category(
-                    photo: photo[index], namephoto: namephoto[index]);
-              },
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
-              padding: EdgeInsets.all(10),
-            )));
+            body: home_grid(photo: photo, namephoto: namephoto)));
   }
 }
+
 
 //بديل اخر لtabbar
 // bottom: TabBar(
