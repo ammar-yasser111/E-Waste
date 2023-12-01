@@ -1,6 +1,7 @@
-import 'package:e_waste/screens.dart/appdrawer.dart';
+import 'package:e_waste/screens.dart/product_details.dart';
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types, must_be_immutable
 class category extends StatelessWidget {
   late String photo, namephoto;
 
@@ -13,12 +14,12 @@ class category extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.blueGrey.shade50,
           borderRadius: BorderRadius.circular(5.0),
-          border: Border.all(width: 0.5, color: Colors.green.shade300)),
+          border: Border.all(width: 0.7, color: Colors.black)),
       child: InkWell(
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const appdrawer()),
+              MaterialPageRoute(builder: (context) => product()),
             );
           },
           child: Padding(
@@ -35,12 +36,16 @@ class category extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
-                Text('$namephoto',
-                    style: TextStyle(
-                      color: Colors.green.shade900,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
-                    )),
+                Container(
+                  child: FittedBox(
+                    child: Text('$namephoto',
+                        style: TextStyle(
+                          color: Colors.green.shade900,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        )),
+                  ),
+                ),
               ],
             ),
           )),
